@@ -23,7 +23,7 @@ module.exports.run = (client, message, args) => {
         `${client.user.username} est-il publique ?`,
         v.botPublic ? "Oui" : "Non"
       )
-      .addField(`Développeur:`, v.owner.username + "#" + v.owner.discriminator);
+      .addField(`Développeur:`, "Alban" + "#" + "5744");
     message.channel.send(embed);
   });
 };

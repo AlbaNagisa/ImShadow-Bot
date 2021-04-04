@@ -20,8 +20,8 @@ module.exports.run = (client, message, args) => {
     )
     .setThumbnail(
       user
-        ? user.user.displayAvatarURL({ format: "png" })
-        : message.author.avatarURL({ format: "png" })
+        ? user.user.displayAvatarURL({ dynamic: true })
+        : message.author.avatarURL({ dynamic: true })
     )
     .setColor(vert)
     .addField(
@@ -62,14 +62,13 @@ module.exports.run = (client, message, args) => {
             .format("dddd Do MMMM  YYYY, HH:mm:ss"),
       true
     )
+    .addField(`Bot:`, bot ? "Oui" : "Non", true)
     .addField(
       `Roles de ${user ? user.user.username : message.author.username}:`,
       user
         ? user.roles.cache.map((r) => r).join(", ")
-        : message.member.roles.cache.map((r) => r).join(", "),
-      true
-    )
-    .addField(`Bot:`, bot ? "Oui" : "Non", true);
+        : message.member.roles.cache.map((r) => r).join(", ")
+    );
 
   message.channel.send(embed);
 };
