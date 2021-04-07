@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
 
   userID: String,
   username: String,
+  warns: Array,
 });
 
 module.exports = mongoose.model("User", userSchema);
