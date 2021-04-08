@@ -3,21 +3,22 @@ module.exports.run = (client, message, args) => {
     const memb = message.mentions.members.first();
     if (memb) {
       args.shift();
-      if (memb.kickable) {
+      if (memb.bannable) {
         if (!args[0])
           return message.reply(
-            `Il faut donner une raison à l'exclusion de ce membre`
+            `Il faut donner une raison au bannissement de ce membre`
           );
-        memb.kick(args.join(" "));
+
+        memb.ban({ reason: args.join(" ") });
         message.reply(
           `${
             memb.user.username
-          } a bien été exclu du serveur avec pour raison : \`${args.join(
+          } a bien été banni du serveur avec pour raison : \`${args.join(
             " "
           )}\``
         );
       } else {
-        message.reply(`Ce membre ne peut être exclu du serveur`);
+        message.reply(`Ce membre ne peut être banni du serveur`);
       }
     } else
       return message.reply(
@@ -29,6 +30,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-  name: "kick",
-  categorie: "Moderation",
+  name: "ban",
+  categorie: "🚫 ㆍ Moderation",
 };

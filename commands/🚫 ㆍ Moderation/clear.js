@@ -13,5 +13,5 @@ module.exports.run = async (client, message, args, settings) => {
 
 module.exports.help = {
   name: "clear",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };

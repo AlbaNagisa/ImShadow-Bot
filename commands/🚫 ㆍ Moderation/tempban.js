@@ -65,5 +65,5 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
   name: "tempban",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };

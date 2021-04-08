@@ -37,5 +37,5 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
   name: "help",
-  categorie: "Misc",
+  categorie: "📁 ㆍ Utils",
 };

@@ -33,5 +33,5 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
   name: "unban",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };

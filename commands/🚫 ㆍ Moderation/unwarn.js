@@ -45,5 +45,5 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
   name: "unwarn",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };

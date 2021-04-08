@@ -16,5 +16,5 @@ module.exports.run = (client, message, args, settings) => {
 
 module.exports.help = {
   name: "unmute",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };

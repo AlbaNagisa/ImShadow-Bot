@@ -75,5 +75,5 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
   name: "userinfo",
-  categorie: "Misc",
+  categorie: "📁 ㆍ Utils",
 };

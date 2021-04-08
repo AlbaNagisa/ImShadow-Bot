@@ -40,5 +40,5 @@ Raison : ${v}\`\`\``
 
 module.exports.help = {
   name: "seewarn",
-  categorie: "Moderation",
+  categorie: "🚫 ㆍ Moderation",
 };
