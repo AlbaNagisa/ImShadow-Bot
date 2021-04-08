@@ -17,7 +17,8 @@ module.exports.run = async (client, message, args) => {
   }
   args.shift();
   const pos = args[0];
-
+  if (!pos)
+    return message.reply(`Tu n'as pas préciser l'id du warn à supprimer`);
   if (mem) {
     var warns = memberToUpdate.warns;
     const r = warns[pos];
