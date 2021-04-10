@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+  if (!message.member.hasPermission(["ADMINISTRATOR"]))
+    return message.reply("Tu ne dispose pas des permissions nécessaires");
   const user = await message.mentions.users.first();
   if (!user) return message.reply(`Tu dois mentionner un utilisateur`);
   const mem = await message.guild.members.cache.get(user.id);

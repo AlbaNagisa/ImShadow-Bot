@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+  if (!message.member.hasPermission(["ADMINISTRATOR"]))
+    return message.reply("Tu ne dispose pas des permissions nécessaires");
   const user = message.mentions.members.first();
 
   if (!user) return message.reply(`Mentionne un utilisateur`);

@@ -1,4 +1,6 @@
 module.exports.run = async (client, message, args, settings) => {
+  if (!message.member.hasPermission(["ADMINISTRATOR"]))
+    return message.reply("Tu ne dispose pas des permissions nécessaires");
   if (isNaN(args[0]) || args[0] < 1 || args[0] > 100)
     return message.reply("il faut spécifier un ***nombre*** entre 1 et 100!");
 

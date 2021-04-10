@@ -1,7 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 const { rouge } = require("../../couleurs");
 
-module.exports.run = (client, message, args, settings) => {
+module.exports.run = (client, message, args) => {
+  if (!message.member.hasPermission(["ADMINISTRATOR"]))
+    return message.reply("Tu ne dispose pas des permissions nécessaires");
   let user = message.guild.member(message.mentions.users.first());
   let muteRole = message.guild.roles.cache.find((r) => r.name === "Muted");
   if (!muteRole) {

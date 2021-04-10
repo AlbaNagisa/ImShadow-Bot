@@ -2,6 +2,8 @@ const { MessageEmbed } = require("discord.js");
 const { bleuClair } = require("../../couleurs");
 
 module.exports.run = async (client, message, args) => {
+  if (!message.member.hasPermission(["ADMINISTRATOR"]))
+    return message.reply("Tu ne dispose pas des permissions nécessaires");
   var member = await message.member;
   if (args[0]) {
     if (message.guild.member(message.mentions.users.first())) {
