@@ -4,7 +4,6 @@ module.exports.run = (client, message, args) => {
   if (!message.member.hasPermission(["ADMINISTRATOR"]))
     return message.reply("Tu ne dispose pas des permissions nécessaires");
   const fban = message.guild.fetchBan(args[0]);
-  console.log(fban);
   const embed = new MessageEmbed();
   fban
     .then((m) => {

@@ -17,7 +17,7 @@ module.exports = async (client, channel) => {
 
   const embed = new MessageEmbed()
     .setColor(vert)
-    .setAuthor(executor.username, executor.displayAvatarURL())
+    .setAuthor(executor.tag, executor.displayAvatarURL())
     .setThumbnail(executor.displayAvatarURL({ dynamic: true }))
     .setTitle(`Un salon vient d'être créer`)
     .addField("Nom :", channel.name, true)

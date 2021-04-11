@@ -20,7 +20,7 @@ module.exports = async (client, channel) => {
 
     .setColor(rouge)
     .setTitle(`Un salon vient d'être supprimer`)
-    .setAuthor(executor.username, executor.displayAvatarURL())
+    .setAuthor(executor.tag, executor.displayAvatarURL())
     .setThumbnail(executor.displayAvatarURL({ dynamic: true }))
     .addField("Nom :", channel.name, true)
     .addField("Type :", type(channel.type), true)

@@ -21,7 +21,7 @@ module.exports = async (client, oldChannel, newChannel) => {
 
   const embed = new MessageEmbed()
     .setColor(jauneorange)
-    .setAuthor(executor.username, executor.displayAvatarURL())
+    .setAuthor(executor.tag, executor.displayAvatarURL())
     .setThumbnail(executor.displayAvatarURL({ dynamic: true }))
     .setTitle(`Le salon ${oldChannel.name} vient d'être modifier`);
   if (oldChannel.name !== newChannel.name) {
