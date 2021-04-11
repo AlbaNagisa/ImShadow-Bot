@@ -23,36 +23,57 @@ module.exports = async (client, oldChannel, newChannel) => {
     .setColor(jauneorange)
     .setAuthor(executor.username, executor.displayAvatarURL())
     .setThumbnail(executor.displayAvatarURL({ dynamic: true }))
-    .setTitle(`Un salon vient d'être modifier`)
-    .addField("Nom :", oldChannel.name + " => " + newChannel.name, true)
-
-    .addField("Type :", type(oldChannel.type) + " => " + newChannel.type, true)
-
-    .addField(
+    .setTitle(`Le salon ${oldChannel.name} vient d'être modifier`);
+  if (oldChannel.name !== newChannel.name) {
+    embed.addField("Nom :", oldChannel.name + " => " + newChannel.name, true);
+  }
+  if (oldChannel.type !== newChannel.type) {
+    embed.addField(
+      "Type :",
+      type(oldChannel.type) + " => " + type(newChannel.type),
+      true
+    );
+  }
+  if (oldChannel.rawPosition !== newChannel.rawPosition) {
+    embed.addField(
       "Position",
       oldChannel.rawPosition + " => " + newChannel.rawPosition,
       true
-    )
-    .addField(
+    );
+  }
+  if (oldChannel.nsfw !== newChannel.nsfw) {
+    embed.addField(
       `NSFW :`,
-      oldChannel.nsfw
-        ? "Oui"
-        : "Non" + " => " + newChannel.nsfw
-        ? "Oui"
-        : "Non",
+      `${oldChannel.nsfw ? "Oui" : "Non"} => ${
+        newChannel.nsfw ? "Oui" : "Non"
+      }`,
       true
-    )
-    .setTimestamp();
-  embed.addField(
-    "Categorie :",
-    oldChannel.parent.name + " => " + newChannel.parent.name,
-    true
-  );
-  embed.addField(
-    `Topic`,
-    info(oldChannel.topic) + " => " + info(newChannel.topic)
-  );
+    );
+  }
+  embed.setTimestamp();
 
+  if (oldChannel.parent !== newChannel.parent) {
+    embed.addField(
+      "Categorie :",
+      `
+     ${
+       oldChannel.parent
+         ? info(oldChannel.parent.name)
+         : info(oldChannel.parent)
+     }  => ${
+        newChannel.parent
+          ? info(newChannel.parent.name)
+          : info(oldChannel.parent)
+      }`,
+      true
+    );
+  }
+  if (info(oldChannel.topic) !== info(newChannel.topic)) {
+    embed.addField(
+      `Topic`,
+      info(oldChannel.topic) + " => " + info(newChannel.topic)
+    );
+  }
   client.guilds.cache
     .get(oldChannel.guild.id)
     .channels.cache.get("830018869614870538")
