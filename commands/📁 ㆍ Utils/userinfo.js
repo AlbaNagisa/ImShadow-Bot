@@ -11,9 +11,7 @@ module.exports.run = (client, message, args) => {
   }
   const user = message.mentions.members.first();
   const bot = user ? user.user.bot : message.author.bot;
-  const tamere = user
-    ? user.presence.activities
-    : message.author.presence.activities;
+  message.member.roles.cache.find((r) => console.log(r.name));
   const embed = new MessageEmbed()
     .setTitle(
       `Information de ${user ? user.user.username : message.author.username}`
@@ -62,13 +60,19 @@ module.exports.run = (client, message, args) => {
             .format("dddd Do MMMM  YYYY, HH:mm:ss"),
       true
     )
-    .addField(`Bot:`, bot ? "Oui" : "Non", true)
-    .addField(
+    .addField(`Bot:`, bot ? "Oui" : "Non", true);
+  if (message.member.roles.cache.find((r) => r.name != "@everyone")) {
+    embed.addField(
       `Roles de ${user ? user.user.username : message.author.username}:`,
       user
-        ? user.roles.cache.map((r) => r).join(", ")
-        : message.member.roles.cache.map((r) => r).join(", ")
+        ? user.roles.cache
+            .map((r) => (r.name === "@everyone" ? "" : r))
+            .join(", ")
+        : message.member.roles.cache
+            .map((r) => (r.name === "@everyone" ? "" : r))
+            .join(", ")
     );
+  }
 
   message.channel.send(embed);
 };
