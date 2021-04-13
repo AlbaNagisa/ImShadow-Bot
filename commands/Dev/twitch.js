@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { Client } = require("twitchrequest");
+const { config } = require("../../config");
 const { violet } = require("../../couleurs");
 module.exports.run = (client, message, args) => {
   message.delete;
@@ -12,10 +13,10 @@ module.exports.run = (client, message, args) => {
     channels: ["imshadowytb"],
 
     // Your client ID
-    client_id: "7a85c1rx52uynt3z2btlrdzjejxudb",
+    client_id: config.twitch_id,
 
     // Your client secret
-    client_secret: "9qen0jnxbrppnundhteq04g28ba5gz",
+    client_secret: config.twitch_secret,
 
     // The interval it will check (in seconds)
     interval: 3,
