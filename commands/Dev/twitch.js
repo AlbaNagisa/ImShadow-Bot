@@ -12,14 +12,11 @@ module.exports.run = (client, message, args) => {
   const twitch = new Client({
     channels: ["imshadowytb"],
 
-    // Your client ID
     client_id: config.twitch_id,
 
-    // Your client secret
     client_secret: config.twitch_secret,
 
-    // The interval it will check (in seconds)
-    interval: 3,
+    interval: 60,
   });
 
   twitch.on("live", (data) => {
